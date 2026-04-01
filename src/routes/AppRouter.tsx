@@ -6,6 +6,7 @@ const App = lazy(() => import('../App.tsx'))
 const Counter = lazy(() => import('../pages/CounterPage.tsx'))
 const MemoMania = lazy(() => import('../pages/MemoMania.tsx'))
 const PokaMokaPage = lazy(() => import('../pages/PokaMokaPage.tsx'))
+const SocialMedia = lazy(() => import('../pages/SocialMedia.tsx'))
 const NotFound = lazy(() => import('../pages/NotFound.tsx'))
 
 const routeFallback = (
@@ -23,6 +24,7 @@ export default function AppRouter() {
             <Route path="/" element={<Counter />} />
             <Route path="/memo-mania" element={<MemoMania />} />
             <Route path="/poka-moka" element={<PokaMokaPage />} />
+            <Route path="/social-media" element={<SocialMedia />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
