@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "hooks": {
+    "sessionStart": [
+      {
+         "type": "command",
+         "bash": "./scripts/sessionstart-guard.sh"
+      }
+    ]
+  }
+}

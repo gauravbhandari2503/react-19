@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "hooks": {
+    "sessionStart": [
+      {
+        "type": "command",
+        "bash": "./scripts/session-start.sh",
+        "powershell": "./scripts/session-start.ps1",
+        "cwd": "scripts",
+        "timeoutSec": 30
+      }
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+title = "react-19-poc gitleaks config"
+
+# Inherit all 150+ built-in gitleaks rules and add project-specific ones on top.
+[extend]
+useDefault = true
+
+# ─── Project-specific rules ─────────────────────────────────────────────────
+
+[[rules]]
+id = "stripe-key-variable"
+description = "Stripe key hardcoded in a variable assignment"
+regex = '''(?i)stripe[A-Za-z]*[Kk]ey\s*[:=]\s*['"][a-zA-Z0-9_\-]{10,}['"]'''
+tags = ["stripe", "secret", "key"]
+severity = "critical"
+
+[[rules]]
+id = "google-maps-key-variable"
+description = "Google Maps / Google API key hardcoded in a variable assignment"
+regex = '''(?i)(google[._-]?maps?|maps?)[A-Za-z]*[Kk]ey\s*[:=]\s*['"][A-Za-z0-9_\-]{10,}['"]'''
+tags = ["google", "maps", "secret", "key"]
+severity = "critical"
+
+[[rules]]
+id = "generic-named-key-variable"
+description = "Any *Key variable assigned a quoted string value (catches stripeKey, googleMapsKey, apiKey, etc.)"
+regex = '''(?i)[a-z][A-Za-z0-9]*[Kk]ey\s*[:=]\s*['"][A-Za-z0-9_\-./+]{10,}['"]'''
+tags = ["generic", "secret", "key"]
+severity = "high"
+
+[[rules]]
+id = "sentry-dsn"
+description = "Sentry DSN hardcoded"
+regex = '''https://[a-f0-9]{32}@(o\d+\.)?sentry\.io/\d+'''
+tags = ["sentry", "dsn", "secret"]
+severity = "medium"
+
+# ─── Allowlist ───────────────────────────────────────────────────────────────
+
+[allowlist]
+description = "Exclude generated artifacts, dependencies and doc examples"
+paths = [
+  '''^node_modules/''',
+  '''^dist/''',
+  '''^build/''',
+  '''^\\.git/''',
+  '''^public/''',
+]
+
+# Allow obvious placeholder / example values
+regexes = [
+  '''(?i)(example|placeholder|your[_-]?key|xxx+|<[^>]+>|changeme|redacted)''',
+]
