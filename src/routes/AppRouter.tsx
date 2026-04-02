@@ -8,6 +8,7 @@ const MemoMania = lazy(() => import('../pages/MemoMania.tsx'))
 const PokaMokaPage = lazy(() => import('../pages/PokaMokaPage.tsx'))
 const SocialMedia = lazy(() => import('../pages/SocialMedia.tsx'))
 const NotFound = lazy(() => import('../pages/NotFound.tsx'))
+const WrongCode = lazy(() => import('../pages/WrongCode.tsx'))
 
 const routeFallback = (
   <div className="flex min-h-screen items-center justify-center bg-slate-50 dark:bg-slate-950">
@@ -25,6 +26,7 @@ export default function AppRouter() {
             <Route path="/memo-mania" element={<MemoMania />} />
             <Route path="/poka-moka" element={<PokaMokaPage />} />
             <Route path="/social-media" element={<SocialMedia />} />
+            <Route path="/wrong-code" element={<WrongCode />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

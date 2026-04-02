@@ -2,7 +2,7 @@ import CounterWidget from '../components/CounterWidget'
 
 export default function Home() {
   return (
-    <div className="w-full max-w-2xl text-center">
+    <div className="flex flex-col justify-center items-center w-full max-w-2xl text-center">
       <p className="text-sm font-medium uppercase tracking-wide text-primary-700 dark:text-primary-300">
         React 19 POC
       </p>
