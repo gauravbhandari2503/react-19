@@ -2,7 +2,7 @@ import CreatePost from "../components/CreatePost";
 import SocialPost from "../components/SocialPost";
 import PostsService from "../api/posts.api";
 import type { Post } from "../types/post.schema";
-import { useEffect, useState, type ReactNode, useOptimistic, useTransition } from "react";
+import { useEffect, useState, type ReactNode, useTransition } from "react";
 
 const USER_ID = 1; // Assuming a fixed user ID for demonstration purposes
 
@@ -22,26 +22,27 @@ async function createPost(postData: { title: string; body: string, userId?: numb
 
 const SocialMedia = () => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [pendingPosts, setPendingPosts] = useState<OptimisticPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [_isPending, startTransition] = useTransition();
 
-  const [optimisticPosts, addOptimisticPost] = useOptimistic<OptimisticPost[]>(
-    posts,
-    (state, newPost: OptimisticPost) => {
-      if (newPost.isPending) {
-        return [newPost, ...state];
-      }
+  const optimisticPosts = [...pendingPosts, ...posts];
 
-      return state.filter((post) => post.id !== newPost.id);
-    },
-  );
   const onPostCreated = async (newPost: Post) => {
     const temporaryPost: OptimisticPost = { ...newPost, id: Date.now(), isPending: true, userId: USER_ID };
     startTransition(async () => {
-        addOptimisticPost(temporaryPost);
-        const response = await createPost({ ...newPost, userId: USER_ID });
-        if (response) {
-            setPosts((prevPosts) => [response, ...prevPosts]);
+        setPendingPosts((currentPendingPosts) => [temporaryPost, ...currentPendingPosts]);
+
+        try {
+            const response = await createPost({ ...newPost, userId: USER_ID });
+
+            if (response) {
+                setPosts((prevPosts) => [response, ...prevPosts]);
+            }
+        } finally {
+            setPendingPosts((currentPendingPosts) =>
+                currentPendingPosts.filter((post) => post.id !== temporaryPost.id),
+            );
         }
     });
   };

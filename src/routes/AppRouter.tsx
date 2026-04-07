@@ -7,6 +7,9 @@ const Counter = lazy(() => import('../pages/CounterPage.tsx'))
 const MemoMania = lazy(() => import('../pages/MemoMania.tsx'))
 const PokaMokaPage = lazy(() => import('../pages/PokaMokaPage.tsx'))
 const SocialMedia = lazy(() => import('../pages/SocialMedia.tsx'))
+const UseEffectDependencyManagementPage = lazy(
+  () => import('../pages/UseEffectDependencyManagementPage.tsx'),
+)
 const NotFound = lazy(() => import('../pages/NotFound.tsx'))
 const WrongCode = lazy(() => import('../pages/WrongCode.tsx'))
 
@@ -26,6 +29,10 @@ export default function AppRouter() {
             <Route path="/memo-mania" element={<MemoMania />} />
             <Route path="/poka-moka" element={<PokaMokaPage />} />
             <Route path="/social-media" element={<SocialMedia />} />
+            <Route
+              path="/docs/use-effect-dependency-management"
+              element={<UseEffectDependencyManagementPage />}
+            />
             <Route path="/wrong-code" element={<WrongCode />} />
           </Route>
           <Route path="*" element={<NotFound />} />

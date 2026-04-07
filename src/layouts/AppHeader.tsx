@@ -33,6 +33,12 @@ export default function AppHeader() {
             Social Media
           </Link>
           <Link
+            to="/docs/use-effect-dependency-management"
+            className="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
+          >
+            useEffect Docs
+          </Link>
+          <Link
             to="/wrong-code"
             className="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
           >

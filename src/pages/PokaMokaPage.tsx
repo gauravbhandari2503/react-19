@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState, useTransition, useDeferredValue } from 'react';
+import { useCallback, useMemo, useState, useTransition } from 'react';
 import { Button } from '$/components/button';
 import { Input } from '$/components/input';
 import PokemonCard from '../components/PokemonCard';

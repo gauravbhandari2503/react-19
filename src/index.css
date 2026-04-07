@@ -44,3 +44,123 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.markdown-doc {
+  color: #0f172a;
+  line-height: 1.75;
+}
+
+.markdown-doc > :first-child {
+  margin-top: 0;
+}
+
+.markdown-doc > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-doc h1,
+.markdown-doc h2,
+.markdown-doc h3,
+.markdown-doc h4 {
+  color: #0f172a;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-doc h1 {
+  font-size: 2.25rem;
+}
+
+.markdown-doc h2 {
+  font-size: 1.5rem;
+}
+
+.markdown-doc h3 {
+  font-size: 1.25rem;
+}
+
+.markdown-doc p,
+.markdown-doc ul,
+.markdown-doc ol,
+.markdown-doc pre,
+.markdown-doc table,
+.markdown-doc blockquote {
+  margin: 1rem 0;
+}
+
+.markdown-doc ul,
+.markdown-doc ol {
+  padding-left: 1.5rem;
+}
+
+.markdown-doc ul {
+  list-style: disc;
+}
+
+.markdown-doc ol {
+  list-style: decimal;
+}
+
+.markdown-doc li + li {
+  margin-top: 0.5rem;
+}
+
+.markdown-doc a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.markdown-doc hr {
+  border: 0;
+  border-top: 1px solid #e2e8f0;
+  margin: 2rem 0;
+}
+
+.markdown-doc code {
+  background-color: #e2e8f0;
+  border-radius: 0.375rem;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.875em;
+  padding: 0.15rem 0.4rem;
+}
+
+.markdown-doc pre {
+  background-color: #0f172a;
+  border-radius: 1rem;
+  color: #e2e8f0;
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+.markdown-doc pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.markdown-doc blockquote {
+  border-left: 4px solid #93c5fd;
+  color: #334155;
+  margin-left: 0;
+  padding-left: 1rem;
+}
+
+.markdown-doc table {
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.markdown-doc th,
+.markdown-doc td {
+  border: 1px solid #cbd5e1;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.markdown-doc th {
+  background-color: #f8fafc;
+}
