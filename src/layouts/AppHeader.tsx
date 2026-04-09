@@ -44,6 +44,12 @@ export default function AppHeader() {
           >
             Wrong Code
           </Link>
+          <Link
+            to="/accessibility"
+            className="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
+          >
+            Accessibility
+          </Link>
         </div>
       </div>
     </nav>

@@ -12,6 +12,7 @@ const UseEffectDependencyManagementPage = lazy(
 )
 const NotFound = lazy(() => import('../pages/NotFound.tsx'))
 const WrongCode = lazy(() => import('../pages/WrongCode.tsx'))
+const AccessibilityExample = lazy(() => import('../pages/AccessibilityExample.tsx'))
 
 const routeFallback = (
   <div className="flex min-h-screen items-center justify-center bg-slate-50 dark:bg-slate-950">
@@ -34,6 +35,7 @@ export default function AppRouter() {
               element={<UseEffectDependencyManagementPage />}
             />
             <Route path="/wrong-code" element={<WrongCode />} />
+            <Route path="/accessibility" element={<AccessibilityExample />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
