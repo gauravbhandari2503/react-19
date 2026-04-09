@@ -3,8 +3,8 @@ import { useState } from "react"
 function WrongCode() {
     const [count, setCount] = useState(0)
     function handleClick() {
-        setCount(count + 1)
-        setCount(count + 1)
+        setCount(prev => prev + 1)
+        setCount(prev => prev + 1)
     }
     return <>
         <h1>Wrong Code</h1>
